@@ -39,4 +39,11 @@ class BracketDeleterTest extends TestCase
         $deleter->process();
         $this->assertEquals("Привет   дом", $deleter->getResult());
     }
+
+        public function testCloseFirst()
+    {
+        $deleter = new BracketDeleter("Проверка сначала ) закрывающая потом открывающая (");
+        $deleter->process();
+        $this->assertEquals("Проверка сначала ) закрывающая потом открывающая (", $deleter->getResult());
+    }
 }
